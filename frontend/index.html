@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hierarchy Analyzer | SRM Full Stack</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <svg class="nav-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+                <span class="nav-title">Hierarchy Analyzer</span>
+            </div>
+            <div class="nav-meta">
+                <div class="status-indicator">
+                    <span class="status-dot"></span>
+                    <span class="status-text">API Connected</span>
+                </div>
+                <div class="user-badge">
+                    <span class="user-avatar">AK</span>
+                    <span class="user-name">Aditya Singh</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <h3 class="sidebar-heading">Navigation</h3>
+                <nav class="sidebar-nav">
+                    <a href="#playground" class="nav-item active">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="16 18 22 12 16 6"/>
+                            <polyline points="8 6 2 12 8 18"/>
+                        </svg>
+                        API Playground
+                    </a>
+                    <a href="#docs" class="nav-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                        </svg>
+                        Documentation
+                    </a>
+                </nav>
+            </div>
+
+            <div class="sidebar-section">
+                <h3 class="sidebar-heading">Quick Examples</h3>
+                <div class="example-list">
+                    <button onclick="loadExample('simple')" class="example-chip">
+                        <span class="chip-icon">🌲</span>
+                        Simple Tree
+                    </button>
+                    <button onclick="loadExample('cycle')" class="example-chip">
+                        <span class="chip-icon">🔄</span>
+                        Cycle Detection
+                    </button>
+                    <button onclick="loadExample('multiple')" class="example-chip">
+                        <span class="chip-icon">🌳</span>
+                        Multiple Trees
+                    </button>
+                    <button onclick="loadExample('complex')" class="example-chip">
+                        <span class="chip-icon">🔀</span>
+                        Diamond Pattern
+                    </button>
+                    <button onclick="loadExample('stress')" class="example-chip">
+                        <span class="chip-icon">⚡</span>
+                        50 Nodes Stress
+                    </button>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h3 class="sidebar-heading">Identity</h3>
+                <div class="identity-card-mini">
+                    <div class="identity-row">
+                        <span class="identity-label">User ID</span>
+                        <span class="identity-value">AdityaKumarSingh_09112005</span>
+                    </div>
+                    <div class="identity-row">
+                        <span class="identity-label">Email</span>
+                        <span class="identity-value">aa5527@srmist.edu.in</span>
+                    </div>
+                    <div class="identity-row">
+                        <span class="identity-label">Roll No</span>
+                        <span class="identity-value">RA2311003010916</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content">
+            <!-- Input Panel -->
+            <div class="panel input-panel" id="playground">
+                <div class="panel-header">
+                    <div class="panel-title-group">
+                        <h2 class="panel-title">Request Builder</h2>
+                        <span class="badge badge-post">POST</span>
+                        <span class="endpoint-path">/bfhl</span>
+                    </div>
+                    <div class="panel-actions">
+                        <button class="btn btn-ghost" onclick="formatJSON()" title="Format JSON">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="8" y1="6" x2="21" y2="6"/>
+                                <line x1="8" y1="12" x2="21" y2="12"/>
+                                <line x1="8" y1="18" x2="21" y2="18"/>
+                                <line x1="3" y1="6" x2="3.01" y2="6"/>
+                                <line x1="3" y1="12" x2="3.01" y2="12"/>
+                                <line x1="3" y1="18" x2="3.01" y2="18"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="code-editor-wrapper">
+                        <div class="editor-line-numbers" id="lineNumbers"></div>
+                        <textarea 
+                            id="nodeInput" 
+                            class="code-editor" 
+                            placeholder='Enter JSON array of node relationships...'
+                            spellcheck="false"
+                        >[
+  "A->B",
+  "A->C",
+  "B->D",
+  "C->E",
+  "E->F",
+  "X->Y",
+  "Y->Z",
+  "Z->X",
+  "P->Q",
+  "Q->R",
+  "G->H",
+  "G->H",
+  "G->I",
+  "hello",
+  "1->2",
+  "A->"
+]</textarea>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="footer-left">
+                        <span class="char-count">Characters: <strong id="charCount">0</strong></span>
+                        <span class="separator">|</span>
+                        <span class="entry-count">Entries: <strong id="entryCount">0</strong></span>
+                    </div>
+                    <div class="footer-right">
+                        <button class="btn btn-secondary" onclick="clearData()">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="3 6 5 6 21 6"/>
+                                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                            </svg>
+                            Clear
+                        </button>
+                        <button class="btn btn-primary" onclick="submitData()" id="submitBtn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="22" y1="2" x2="11" y2="13"/>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                            </svg>
+                            Send Request
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Error Section -->
+            <div class="alert alert-error" id="errorSection" style="display: none;">
+                <div class="alert-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="15" y1="9" x2="9" y2="15"/>
+                        <line x1="9" y1="9" x2="15" y2="15"/>
+                    </svg>
+                </div>
+                <div class="alert-content">
+                    <div class="alert-title">Request Failed</div>
+                    <div class="alert-message" id="errorMessage"></div>
+                </div>
+                <button class="alert-close" onclick="closeError()">×</button>
+            </div>
+
+            <!-- Loading Skeleton -->
+            <div class="loading-skeleton" id="loadingSection" style="display: none;">
+                <div class="skeleton-card">
+                    <div class="skeleton-line skeleton-title"></div>
+                    <div class="skeleton-line"></div>
+                    <div class="skeleton-line"></div>
+                    <div class="skeleton-line skeleton-short"></div>
+                </div>
+                <div class="skeleton-card">
+                    <div class="skeleton-line skeleton-title"></div>
+                    <div class="skeleton-line"></div>
+                    <div class="skeleton-line skeleton-short"></div>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-container" id="resultSection" style="display: none;">
+                <!-- Summary Bar -->
+                <div class="summary-bar">
+                    <div class="summary-metric">
+                        <div class="metric-value" id="totalTrees">0</div>
+                        <div class="metric-label">Total Trees</div>
+                    </div>
+                    <div class="summary-divider"></div>
+                    <div class="summary-metric">
+                        <div class="metric-value" id="totalCycles">0</div>
+                        <div class="metric-label">Cycles Detected</div>
+                    </div>
+                    <div class="summary-divider"></div>
+                    <div class="summary-metric">
+                        <div class="metric-value" id="largestRoot">—</div>
+                        <div class="metric-label">Largest Tree Root</div>
+                    </div>
+                    <div class="summary-divider"></div>
+                    <div class="summary-metric">
+                        <div class="metric-value" id="responseTime">0ms</div>
+                        <div class="metric-label">Response Time</div>
+                    </div>
+                </div>
+
+                <!-- Response Tabs -->
+                <div class="response-tabs">
+                    <button class="tab active" onclick="switchTab('hierarchies')">Hierarchies</button>
+                    <button class="tab" onclick="switchTab('invalid')">
+                        Invalid Entries
+                        <span class="tab-count" id="invalidCount">0</span>
+                    </button>
+                    <button class="tab" onclick="switchTab('duplicates')">
+                        Duplicates
+                        <span class="tab-count" id="duplicateCount">0</span>
+                    </button>
+                    <button class="tab" onclick="switchTab('raw')">Raw JSON</button>
+                </div>
+
+                <!-- Tab Content: Hierarchies -->
+                <div class="tab-content active" id="tab-hierarchies">
+                    <div id="hierarchiesList" class="hierarchies-grid"></div>
+                </div>
+
+                <!-- Tab Content: Invalid Entries -->
+                <div class="tab-content" id="tab-invalid">
+                    <div class="entries-container" id="invalidEntries"></div>
+                </div>
+
+                <!-- Tab Content: Duplicates -->
+                <div class="tab-content" id="tab-duplicates">
+                    <div class="entries-container" id="duplicateEntries"></div>
+                </div>
+
+                <!-- Tab Content: Raw JSON -->
+                <div class="tab-content" id="tab-raw">
+                    <div class="raw-json-container">
+                        <pre><code id="rawJson"></code></pre>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
