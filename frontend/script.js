@@ -1,5 +1,5 @@
 // ==================== Constants ====================
-const API_URL = 'http://localhost:3000/bfhl';
+const API_URL = 'https://bajaj-backend-task-w0my.onrender.com/bfhl';
 let responseStartTime = 0;
 let lastResponse = null;
 
