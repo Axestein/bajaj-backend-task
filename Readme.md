@@ -6,7 +6,7 @@ Hierarchy Node Relationship Analyzer - Full Stack Application
 
 | Service | URL |
 |---------|-----|
-| **Frontend** | https://srm-hierarchy-frontend.vercel.app |
+| **Frontend** | https://bajaj-backend-task.vercel.app/ |
 | **Backend API** | https://bajaj-backend-task-w0my.onrender.com |
 | **API Endpoint** | POST `/bfhl` |
 | **GitHub Repo** | https://github.com/Axestein/bajaj-backend-task |
