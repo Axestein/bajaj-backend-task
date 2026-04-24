@@ -117,7 +117,7 @@ Content-Type: application/json
 - ✅ Response under 3 seconds for 50 nodes
 - ✅ Professional dark-theme UI with code editor
 
-## 📝 Processing Rules
+## Processing Rules
 
 | Rule | Description |
 |------|-------------|
@@ -129,7 +129,7 @@ Content-Type: application/json
 | **Root Detection** | Node never appearing as child in any valid edge |
 | **Pure Cycle Root** | Lexicographically smallest node used as root |
 
-## 🏃‍♂️ Run Locally
+## Run Locally
 
 ```bash
 # Clone repo
@@ -148,7 +148,7 @@ npx serve .
 # → http://localhost:3000
 ```
 
-## 🧪 Test Cases
+## Test Cases
 
 ### Simple Tree
 ```json
@@ -170,12 +170,7 @@ npx serve .
 {"data": ["A->B","B->C","C->D","D->E","E->F","F->G","G->H","H->I","I->J","J->K","K->L","L->M","M->N","N->O","O->P","P->Q","Q->R","R->S","S->T","T->U","U->V","V->W","W->X","X->Y","Y->Z","Z->A","M->Z","L->Y","K->X","J->W","I->V","H->U","G->T","F->S","E->R","D->Q","C->P","B->O","A->N","Z->M","A->B","C->D","E->F","G->H","I->J","K->L","M->N","O->P","Q->R","S->T","hello_world","123->456","","A->","AB->C"]}
 ```
 
-## ⚠️ Known Limitations
-
-- **Render Free Tier:** Cold start on first request (30-50s delay). Subsequent requests are fast.
-- **Node Limit:** Tested for up to 50 nodes as per requirements.
-
 **Built by:** Aditya Kumar Singh  
 **Roll Number:** RA2311003010916  
 **SRM Institute of Science and Technology**
-````
+
